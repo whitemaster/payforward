@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% block content %}
+<div id="slide">
+  <div class="slider">
+    <ul class="items">
+      <li><img src="/media/images/slider-1.jpg" alt="">
+        <div class="banner">
+          <p class="text-1">Нужна <strong>помощь?</strong></p>
+          <p class="text-2">Здесь ты можешь попросить людей о любой услуге и люди тебе помогут!</p>
+        </div>
+      </li>
+      <li><img src="/media/images/slider-2.jpg" alt="">
+        <div class="banner">
+          <p class="text-1">Ты не должен <strong>платить им!</strong></p>
+          <p class="text-2">Взамен ты должен оказать три любых услуги другим людям, которые просят помочь им на сайте.</p>
+        </div>
+      </li>
+      <li><img src="/media/images/slider-3.jpg" alt="">
+        <div class="banner">
+          <p class="text-1">Они ещё трём<strong>и так далее!</strong></p>
+          <p class="text-2">Люди будут всё больше и больше помогать друг другу и в мире станет больше добра!</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<!--==============================content================================-->
+<section id="content">
+  <div class="container_12">
+    <div class="grid_6 box-1"> <img src="/media/images/page1-img1.png" alt="">
+      <div class="extra-wrap">
+        <h2><a href="/create_task">Есть просьба!</a></h2>
+        <p>Вы можете попросить людей из нашего сообщества сделать что-то нужное для вас. После этого вам нужно будет выполнить любые три просьбы других людей на сайте.</p>
+      </div>
+    </div>
+    <div class="grid_6 box-1"> <img src="/media/images/login.png" alt="">
+      <div class="extra-wrap">
+        <h2>Вход</h2>
+          <div id="form" class="login">
+              <input type="text" value="Логин" onblur="if(this.value=='') this.value='Логин'" onfocus="if(this.value =='Логин' ) this.value=''">
+              <input type="text" value="Пароль" onblur="if(this.value=='') this.value='Пароль'" onfocus="if(this.value =='Пароль' ) this.value=''">
+              <a class="link" href="/register">Регистрация</a><a class="link" href="/remember">Забыли пароль?!</a>
+          </div>
+      </div>
+    </div>
+    <div class="grid_12 box-2">
+      <div>
+        <p class="text-3">По мативам фильма <span>Заплати другому</span></p>
+        <p class="text-4">Вместе мы способны изменить мир к лучшему, это проще, чем ты думаешь!</p>
+      </div>
+    </div>
+    <div class="grid_8">
+      <h2 class="top-1">Важные просьбы</h2>
+      <div class="box-3">
+        <div> <img src="/media/images/page1-img3.jpg" alt="" class="img-border"> <a href="task.html" class="link-2">Приютите котят</a>
+          <p>Uwisi eniminim veniam quis nostrud exerci tation ullamcorperex eacom.</p>
+        </div>
+        <div> <img src="/media/images/page1-img4.jpg" alt="" class="img-border"> <a href="task.html" class="link-2">Помогите бабушке сделать ремонт</a>
+          <p>Duis autem vel eum iriure dolor henrerit vulputate velit esse molestie.</p>
+        </div>
+        <div class="last"> <img src="/media/images/page1-img5.jpg" alt="" class="img-border"> <a href="task.html" class="link-2">Переведите текст</a>
+          <p>Feugiat nulla facilisis atvero eros et accumsan et iusto odio dignissim.</p>
+        </div>
+      </div>
+      <a href="#" class="button top-4">Больше просьб</a> </div>
+    <div class="grid_4">
+      <h2 class="top-1">Недавние просьбы</h2>
+      <div class="box-6 top-5"> <img src="/media/images/page2-img2.jpg" alt="" class="img-indent img-border">
+        <p><a href="/task/1/" class="link">Поклейте мне обои</a><br>
+          Sadicing elitriam nonumy eirmod nonumy eirmod tempor invidunt labore psum dolor sit.</p>
+      </div>
+      <div class="box-6 top-6"> <img src="/media/images/page2-img3.jpg" alt="" class="img-indent img-border">
+        <p><a href="/task/1/" class="link">Нужен дизайн на мой новый проект</a><br>
+          Amet consetetur sadipscing elitrdiam nonumy eirmod tempor invidunt ut labore et dolore.</p>
+      </div>
+      <div class="box-6 top-6"> <img src="/media/images/page2-img4.jpg" alt="" class="img-indent img-border">
+        <p><a href="/task/1/" class="link">Нужно помещение в центре города для выставки</a><br>
+          Sadicing elitriam nonumy eirmod nonumy eirmod tempor invidunt labore psum dolor sit.</p>
+      </div>
+      <a href="#" class="button top-4">Больше просьб</a> </div>
+    <div class="clear"></div>
+  </div>
+</section>
+{% endblock %}
