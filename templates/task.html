@@ -4,28 +4,20 @@
 <section id="content">
   <div class="container_12 top">
     <div class="grid_8">
-      <h2>Приютите котят, им нужен дом!</h2>
+      <h2>{{ task.title }}</h2>
       <div class="box-5 right-1"> <img src="/media/images/cats.jpg" width="560" alt="" class="img-border fleft">
-        <p class="p2">At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </p>
-        <p class="p2">Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitt accusam.</p>
-        <p>Aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</p>
+        <p>{{ task.description }}</p>
       </div>
  </div>
     <div class="grid_4">
       <h2>Ещё просьбы</h2>
-      <div class="box-6 top-5"> <img src="/media/images/page2-img2.jpg" alt="" class="img-indent img-border">
-        <p><a href="#" class="link">Поклейте мне обои</a><br>
-          Sadicing elitriam nonumy eirmod nonumy eirmod tempor invidunt labore psum dolor sit.</p>
-      </div>
-      <div class="box-6 top-6"> <img src="/media/images/page2-img3.jpg" alt="" class="img-indent img-border">
-        <p><a href="#" class="link">Нужен дизайн на мой новый проект</a><br>
-          Amet consetetur sadipscing elitrdiam nonumy eirmod tempor invidunt ut labore et dolore.</p>
-      </div>
-      <div class="box-6 top-6"> <img src="/media/images/page2-img4.jpg" alt="" class="img-indent img-border">
-        <p><a href="#" class="link">Нужно помещение в центре города для выставки</a><br>
-          Sadicing elitriam nonumy eirmod nonumy eirmod tempor invidunt labore psum dolor sit.</p>
-      </div>
-      <a href="#" class="button top-4">Больше просьб</a> </div>
+      {% for tsk in tasks %}
+          <div class="box-6 top-5"> <img src="/media/images/page2-img2.jpg" alt="" class="img-indent img-border">
+            <p><a href="/task/{{ tsk.id }}" class="link">{{ tsk.title }}</a><br>
+              {{ tsk.description }}</p>
+          </div>
+      {% endfor %}
+      <a href="/tasks" class="button top-4">Больше просьб</a> </div>
       <a class="send"></a>
       <div class="clear"></div>
       </div>

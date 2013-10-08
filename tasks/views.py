@@ -2,13 +2,22 @@ from django.shortcuts import render_to_response
 from tasks.models import *
 
 def index(request):
-    return render_to_response('index.html')
+    tasks = Task.objects.all()
+    important_tasks = tasks.order_by('-rate')[0:3]
+    fresh_tasks = tasks.order_by('-create_date')[0:3]
+
+    return render_to_response('index.html',{'important_tasks':important_tasks,'fresh_tasks':fresh_tasks})
 
 def tasks(request):
-    return render_to_response('tasks.html')
+    tasks = Task.objects.all()
+
+    return render_to_response('tasks.html',{'tasks':tasks})
 
 def task(request,task_id):
-    return render_to_response('task.html')
+    task = Task.objects.get(id=task_id)
+    tasks = Task.objects.exclude(id=task_id)[0:3]
+
+    return render_to_response('task.html',{'task':task, 'tasks':tasks})
 
 def profile(request,user_id):
     return render_to_response('profile.html')

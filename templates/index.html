@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% block scripts %}<script src="/media/js/index.js"></script>{% endblock %}
 {% block content %}
 <div id="slide">
   <div class="slider">
@@ -29,7 +30,7 @@
   <div class="container_12">
     <div class="grid_6 box-1"> <img src="/media/images/page1-img1.png" alt="">
       <div class="extra-wrap">
-        <h2><a href="/create_task">Есть просьба!</a></h2>
+        <h2><a href="/create_task" id="create_task">Есть просьба!</a></h2>
         <p>Вы можете попросить людей из нашего сообщества сделать что-то нужное для вас. После этого вам нужно будет выполнить любые три просьбы других людей на сайте.</p>
       </div>
     </div>
@@ -52,33 +53,27 @@
     <div class="grid_8">
       <h2 class="top-1">Важные просьбы</h2>
       <div class="box-3">
-        <div> <img src="/media/images/page1-img3.jpg" alt="" class="img-border"> <a href="task.html" class="link-2">Приютите котят</a>
-          <p>Uwisi eniminim veniam quis nostrud exerci tation ullamcorperex eacom.</p>
-        </div>
-        <div> <img src="/media/images/page1-img4.jpg" alt="" class="img-border"> <a href="task.html" class="link-2">Помогите бабушке сделать ремонт</a>
-          <p>Duis autem vel eum iriure dolor henrerit vulputate velit esse molestie.</p>
-        </div>
-        <div class="last"> <img src="/media/images/page1-img5.jpg" alt="" class="img-border"> <a href="task.html" class="link-2">Переведите текст</a>
-          <p>Feugiat nulla facilisis atvero eros et accumsan et iusto odio dignissim.</p>
-        </div>
+        {% for task in important_tasks %}
+            <div> <img src="/media/images/page1-img3.jpg" alt="" class="img-border"> <a href="/task/{{ task.id }}" class="link-2">{{ task.title }}</a>
+              <p>{{ task.description }}</p>
+            </div>
+        {% endfor %}
       </div>
-      <a href="#" class="button top-4">Больше просьб</a> </div>
+      <a href="/tasks" class="button top-4">Больше просьб</a> </div>
     <div class="grid_4">
-      <h2 class="top-1">Недавние просьбы</h2>
-      <div class="box-6 top-5"> <img src="/media/images/page2-img2.jpg" alt="" class="img-indent img-border">
-        <p><a href="/task/1/" class="link">Поклейте мне обои</a><br>
-          Sadicing elitriam nonumy eirmod nonumy eirmod tempor invidunt labore psum dolor sit.</p>
-      </div>
-      <div class="box-6 top-6"> <img src="/media/images/page2-img3.jpg" alt="" class="img-indent img-border">
-        <p><a href="/task/1/" class="link">Нужен дизайн на мой новый проект</a><br>
-          Amet consetetur sadipscing elitrdiam nonumy eirmod tempor invidunt ut labore et dolore.</p>
-      </div>
-      <div class="box-6 top-6"> <img src="/media/images/page2-img4.jpg" alt="" class="img-indent img-border">
-        <p><a href="/task/1/" class="link">Нужно помещение в центре города для выставки</a><br>
-          Sadicing elitriam nonumy eirmod nonumy eirmod tempor invidunt labore psum dolor sit.</p>
-      </div>
-      <a href="#" class="button top-4">Больше просьб</a> </div>
+      <h2 class="top-1">Свежие просьбы</h2>
+      {% for task in fresh_tasks %}
+          <div class="box-6 top-5"> <img src="/media/images/page2-img2.jpg" alt="" class="img-indent img-border">
+            <p><a href="/task/{{ task.id }}/" class="link">{{ task.title }}</a><br>
+              {{ task.description }}</p>
+          </div>
+      {% endfor %}
+      <a href="/tasks" class="button top-4">Больше просьб</a> </div>
     <div class="clear"></div>
   </div>
 </section>
+    <div id="create_task_dialog" title="Добавление просьбы">
+        <p>Добавьте вашу просьбу:</p>
+        <textarea name="task_add" id="task_add" cols="30" rows="10"></textarea>
+    </div>
 {% endblock %}

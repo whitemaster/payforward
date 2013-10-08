@@ -30,6 +30,7 @@ class Task(models.Model):
     user = models.ForeignKey(User)
     category = models.ForeignKey(Category, related_name='tasks')
     tag = models.ForeignKey(Tag, related_name='tasks')
+    rate = models.IntegerField(verbose_name='Рейтинг', default=0)
     class Meta:
         verbose_name = 'задачи'
         verbose_name_plural = 'Задача'

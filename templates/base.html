@@ -7,32 +7,14 @@
     <link rel="stylesheet" type="text/css" media="screen" href="/media/css/grid_12.css">
     <link rel="stylesheet" type="text/css" media="screen" href="/media/css/style.css">
     <link rel="stylesheet" type="text/css" media="screen" href="/media/css/slider.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="/media/css/jquery-ui-1.10.3.custom.min.css">
     <script src="/media/js/jquery-1.7.min.js"></script>
+    <script src="/media/js/jquery-ui-1.10.3.custom.min.js"></script>
     <script src="/media/js/jquery.easing.1.3.js"></script>
     <script src="/media/js/cufon-yui.js"></script>
     <script src="/media/js/cufon-replace.js"></script>
     <script src="/media/js/tms-0.4.1.js"></script>
     {% block scripts %}{% endblock %}
-    <script>
-        $(document).ready(function(){
-            $('.slider')._TMS({
-                show:0,
-                pauseOnHover:true,
-                prevBu:false,
-                nextBu:false,
-                playBu:false,
-                duration:800,
-                preset:'fade',
-                pagination:true,
-                pagNums:false,
-                slideshow:7000,
-                numStatus:false,
-                banners:'fade',
-                waitBannerAnimation:false,
-                progressBar:false
-            })
-        });
-    </script>
     <!--[if lt IE 9]>
 <script src="js/html5.js"></script>
 <link rel="stylesheet" type="text/css" media="screen" href="css/ie.css">
