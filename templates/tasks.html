@@ -13,7 +13,7 @@
         <div class="grid_4">
           <div> <img src="/media/images/page4-img1.jpg" alt="" class="img-border">
             <p class="top-4"><a href="/task/{{ task.id }}" class="link">{{ task.title }}</a><br>
-              {{ task.description }}</p>
+              {{ task.description|slice:"100" }}</p>
             <a href="/task/{{ task.id }}" class="button top-4">Подробнее</a> </div>
          </div>
     {% endfor %}

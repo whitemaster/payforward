@@ -2,8 +2,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
-
 class Category(models.Model):
     title = models.CharField(max_length=100, verbose_name='Категория')
     name = models.CharField(max_length=100, verbose_name='Категория транслитом')
@@ -16,6 +14,7 @@ class Category(models.Model):
 class Tag(models.Model):
     title = models.CharField(max_length=100, verbose_name='Тег')
     name = models.CharField(max_length=100, verbose_name='Тег транслитом')
+
     class Meta:
         verbose_name = 'теги'
         verbose_name_plural = 'Тег'
@@ -26,11 +25,11 @@ class Task(models.Model):
     title = models.CharField(max_length=100, verbose_name='Название')
     description = models.TextField(verbose_name='Описание')
     create_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
-    end_date = models.DateTimeField(blank=True, verbose_name='Сроки задачи')
+    end_date = models.DateTimeField(blank=True, verbose_name='До какого срока задача актуальна?', null=True)
     user = models.ForeignKey(User)
     category = models.ForeignKey(Category, related_name='tasks')
-    tag = models.ForeignKey(Tag, related_name='tasks')
     rate = models.IntegerField(verbose_name='Рейтинг', default=0)
+    task_photo = models.ImageField(upload_to='task_photos', verbose_name='Фото', blank=True)
     class Meta:
         verbose_name = 'задачи'
         verbose_name_plural = 'Задача'

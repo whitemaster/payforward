@@ -1,8 +1,10 @@
 $(function() {
     $( "#create_task_dialog" ).dialog({
         autoOpen: false,
+        width: 600,
+        height:400,
         show: {
-            effect: "blind",
+            effect: "explode",
             duration: 1000
         },
         hide: {

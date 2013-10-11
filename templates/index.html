@@ -55,25 +55,29 @@
       <div class="box-3">
         {% for task in important_tasks %}
             <div> <img src="/media/images/page1-img3.jpg" alt="" class="img-border"> <a href="/task/{{ task.id }}" class="link-2">{{ task.title }}</a>
-              <p>{{ task.description }}</p>
+              <p>{{ task.description|slice:"100" }}</p>
             </div>
         {% endfor %}
       </div>
       <a href="/tasks" class="button top-4">Больше просьб</a> </div>
-    <div class="grid_4">
+    <div class="grid_8">
       <h2 class="top-1">Свежие просьбы</h2>
-      {% for task in fresh_tasks %}
-          <div class="box-6 top-5"> <img src="/media/images/page2-img2.jpg" alt="" class="img-indent img-border">
-            <p><a href="/task/{{ task.id }}/" class="link">{{ task.title }}</a><br>
-              {{ task.description }}</p>
-          </div>
-      {% endfor %}
+        <div class="box-3">
+              {% for task in fresh_tasks %}
+                  <div> <img src="/media/images/page1-img3.jpg" alt="" class="img-border"> <a href="/task/{{ task.id }}" class="link-2">{{ task.title }}</a>
+                      <p>{{ task.description|slice:"100" }}</p>
+                  </div>
+              {% endfor %}
+        </div>
       <a href="/tasks" class="button top-4">Больше просьб</a> </div>
     <div class="clear"></div>
   </div>
 </section>
     <div id="create_task_dialog" title="Добавление просьбы">
-        <p>Добавьте вашу просьбу:</p>
-        <textarea name="task_add" id="task_add" cols="30" rows="10"></textarea>
+        <form method="POST" action="/create_task/" enctype="multipart/form-data" id="create_task_form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Добавить">
+        </form>
     </div>
 {% endblock %}

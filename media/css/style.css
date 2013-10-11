@@ -503,6 +503,6 @@ footer p {
 .profile h2{
     margin: 10px;
 }
-#create_task_dialog{
-    z-index: 4000;
+.ui-dialog{
+    z-index: 4000 !important;
 }

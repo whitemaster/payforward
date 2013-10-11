@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+# from djcelery.tests.test_snapshot import create_task
 from tasks.views import *
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -10,6 +11,7 @@ urlpatterns = patterns('',
     url(r'^task/([0-9]+)?/$', task),
     url(r'^tasks/$',tasks),
     url(r'^people/$', people),
+    url(r'^create_task/$', create_task),
     url(r'^profile/([0-9]+)?/$', profile),
     # url(r'^PayForward/', include('PayForward.foo.urls')),
 
