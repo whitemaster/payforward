@@ -47,6 +47,7 @@ class Task(models.Model):
 
 class Answer(models.Model):
     content = models.TextField()
+    task = models.ForeignKey(Task, related_name='answers')
     user = models.ForeignKey(User)
     create_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     class Meta:
