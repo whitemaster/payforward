@@ -5,21 +5,30 @@
   <div class="container_12 top">
     <div class="grid_8">
       <h2>{{ task.title }}</h2>
-      <div class="box-5 right-1"> <img src="/uploads/{{ task.task_photo }}" width="560" alt="" class="img-border fleft">
+      <div class="box-5 right-1">
+          <div class="date">{{ task.create_date }}</div><div class="author">Автор: <a href="/profile/{{ task.user.id }}">{{ task.user.get_full_name }}</a></div>
+          <div class="clear"></div>
+          <img src="/uploads/{{ task.task_photo }}" width="650" alt="" class="img-border fleft">
         <p>{{ task.description }}</p>
+          <a class="send"></a>
+          <div class="clear"></div>
+          <div class="otklik">
+              <img src="/media/images/page2-img2.jpg" alt="" class="img-indent img-border fleft">
+              <a href="#" class="link">Mickey Goldberg</a>
+              <p>Я могу это сделать! Назначьте меня на это задание.</p>
+              <div class="otkilik_data">20 октября 2013 г. 18:04:47</div>
+          </div>
       </div>
  </div>
-    <div class="grid_4">
-      <h2>Ещё просьбы</h2>
-      {% for tsk in tasks %}
-          <div class="box-6 top-5"> <img src="/media/images/page2-img2.jpg" alt="" class="img-indent img-border">
-            <p><a href="/task/{{ tsk.id }}" class="link">{{ tsk.title }}</a><br>
-              {{ tsk.description }}</p>
-          </div>
-      {% endfor %}
-      <a href="/tasks" class="button top-4">Больше просьб</a> </div>
-      <a class="send"></a>
-      <div class="clear"></div>
+    <div class="box-3-right">
+      <h2><a href="/tasks">Ещё просьбы</a></h2>
+        {% for tsk in tasks %}
+            <div><a href="/task/{{ tsk.id }}"><img src="/uploads/{{ tsk.task_photo }}" alt="" class="img-border"></a> <a href="/task/{{ tsk.id }}" class="link-2">{{ tsk.title }}</a>
+                <p>{{ tsk.description|slice:"50" }}</p>
+            </div>
+        {% endfor %}
       </div>
+      <div class="clear"></div>
+  </div>
 </section>
 {% endblock %}

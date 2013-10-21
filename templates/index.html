@@ -37,7 +37,7 @@
     <div class="grid_6 box-1"> <img src="/media/images/login.png" alt="">
       <div class="extra-wrap">
         <h2>Вход</h2>
-          <div id="form" class="login">
+          <div class="login form">
               <input type="text" value="Логин" onblur="if(this.value=='') this.value='Логин'" onfocus="if(this.value =='Логин' ) this.value=''">
               <input type="text" value="Пароль" onblur="if(this.value=='') this.value='Пароль'" onfocus="if(this.value =='Пароль' ) this.value=''">
               <a class="link" href="/register">Регистрация</a><a class="link" href="/remember">Забыли пароль?!</a>
@@ -46,38 +46,38 @@
     </div>
     <div class="grid_12 box-2">
       <div>
-        <p class="text-3">По мативам фильма <span>Заплати другому</span></p>
+        <p class="text-3">По мотивам фильма <span>Заплати другому</span></p>
         <p class="text-4">Вместе мы способны изменить мир к лучшему, это проще, чем ты думаешь!</p>
       </div>
     </div>
     <div class="grid_8">
-      <h2 class="top-1">Важные просьбы</h2>
+      <h2 class="top-1"><a href="/tasks">Важные просьбы</a></h2>
       <div class="box-3">
         {% for task in important_tasks %}
-            <div> <img src="/media/images/page1-img3.jpg" alt="" class="img-border"> <a href="/task/{{ task.id }}" class="link-2">{{ task.title }}</a>
-              <p>{{ task.description|slice:"100" }}</p>
+            <div><a href="/task/{{ task.id }}"><img src="/uploads/{{ task.task_photo }}" alt="" class="img-border"></a> <a href="/task/{{ task.id }}" class="link-2">{{ task.title }}</a>
+              <p>{{ task.description|slice:"50" }}</p>
             </div>
         {% endfor %}
       </div>
-      <a href="/tasks" class="button top-4">Больше просьб</a> </div>
+    </div>
     <div class="grid_8">
-      <h2 class="top-1">Свежие просьбы</h2>
+      <h2 class="top-1"><a href="/tasks">Свежие просьбы</a></h2>
         <div class="box-3">
               {% for task in fresh_tasks %}
-                  <div> <img src="/media/images/page1-img3.jpg" alt="" class="img-border"> <a href="/task/{{ task.id }}" class="link-2">{{ task.title }}</a>
-                      <p>{{ task.description|slice:"100" }}</p>
+                  <div><a href="/task/{{ task.id }}"><img src="/uploads/{{ task.task_photo }}" alt="" class="img-border"></a> <a href="/task/{{ task.id }}" class="link-2">{{ task.title }}</a>
+                      <p>{{ task.description|slice:"50" }}</p>
                   </div>
               {% endfor %}
         </div>
-      <a href="/tasks" class="button top-4">Больше просьб</a> </div>
-    <div class="clear"></div>
+    </div>
+      <div class="clear"></div>
   </div>
 </section>
     <div id="create_task_dialog" title="Добавление просьбы">
-        <form method="POST" action="/create_task/" enctype="multipart/form-data" id="create_task_form">
+        <form method="POST" class="form" action="/create_task/" enctype="multipart/form-data" id="create_task_form">
             {% csrf_token %}
             {{ form.as_p }}
-            <input type="submit" value="Добавить">
+            <input type="submit" class="button top-4" value="Добавить">
         </form>
     </div>
 {% endblock %}

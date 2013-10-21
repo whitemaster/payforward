@@ -40,13 +40,14 @@ a:hover {
 	text-decoration:none;
 }
 .button {
-	font-family: 'Festus', sans-serif;
+	font-family: 'Festus', sans-serif !important;
 	background:url(../images/button.png) 0 0 no-repeat;
-	color:#000;
-	font-size:24px;
+	color:#000 !important;
+	font-size:24px !important;
 	line-height:30px;
 	display:inline-block;
 	padding: 2px 0 5px 43px;
+    cursor: pointer;
 }
 .button:hover {
 	color:#579700;
@@ -305,17 +306,41 @@ ul.menu li a:hover, ul.menu li.current a {
 	margin-top:-7px;
 }
 .box-3 {
+    width: 980px;
 	overflow:hidden;
 	padding:12px 0 0 0;
 }
 .box-3>div {
-	width:180px;
+	width:200px;
 	float:left;
-	margin-right:25px;
+	margin-right:42px;
+}
+.box-3 img{
+    width: 200px;
 }
 .box-3>div a.link-2 {
 	display:inline-block;
 	margin:15px 0 6px 0;
+}
+.box-3-right>h2>a{
+    color: #000000 !important;
+}
+.box-3-right {
+    width: 220px;
+    float: left;
+    overflow:hidden;
+}
+.box-3-right>div {
+    width:200px;
+    float:left;
+    margin-right:42px;
+}
+.box-3-right img{
+    width: 200px;
+}
+.box-3-right>div a.link-2 {
+    display:inline-block;
+    margin:15px 0 6px 0;
 }
 .box-4 {
 }
@@ -348,14 +373,12 @@ ul.menu li a:hover, ul.menu li.current a {
 }
 .box-5 {
 	overflow:hidden;
-	padding-top:8px;
 }
 .box-5 img {
 	margin:4px 10px 0 0;
 }
 .box-6 {
 	overflow:hidden;
-	margin-top:13px;
 }
 .box-6>div {
 	width:290px;
@@ -425,7 +448,7 @@ footer p {
 /*#form{*/
     /*margin-right: 90px;*/
 /*}*/
-#form input {
+.form input[type="text"] {
 	border:#fff 1px solid;
 	background:#fff;
 	font: 13px Arial, Helvetica, sans-serif;
@@ -433,30 +456,27 @@ footer p {
 	font-style:italic;
 	padding:5px 9px 6px 18px;
 	outline: medium none;
-	width: 271px;
+	width: 297px;
 	height:17px;
-	float:left;
 }
-#form textarea {
+.form textarea {
 	border:#fff 1px solid;
 	background:#fff;
 	font: 13px Arial, Helvetica, sans-serif;
 	color:#b6b6b6;
 	font-style:italic;
-	height: 268px;
+	height: 150px;
 	outline: medium none;
 	overflow: auto;
 	padding: 6px 0px 0px 18px;
-	width: 281px;
+	width: 307px;
 	resize:none;
 	margin:0px 0 0 0;
-	float:left;
 }
-#form label {
+.form label {
 	position:relative;
 	overflow:hidden;
 	display: block;
-	min-height:35px;
 }
 .btns {
 	text-align:left;
@@ -469,7 +489,7 @@ footer p {
 }
 .send{
 	display: block;
-	margin: 30px;
+	margin: 20px -10px;
 	width: 200px;
 	height: 59px;
 	float: left;
@@ -505,4 +525,14 @@ footer p {
 }
 .ui-dialog{
     z-index: 4000 !important;
+}
+.top-1 a{
+    color: #000000;
+}
+.date{
+    float: right;
+    margin-right: 20px;
+}
+.otkilik_data{
+    color: #b6b6b6;
 }

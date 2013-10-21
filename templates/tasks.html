@@ -4,14 +4,14 @@
 <section id="content">
   <div class="container_12 top">
     <div class="grid_12">
-        <div id="form" class="find">
+        <div class="find form">
             <input type="text" value="Поиск" onblur="if(this.value=='') this.value='Поиск'" onfocus="if(this.value =='Поиск' ) this.value=''">
         </div>
       <h2 class="p5">Акктуальные просьбы</h2>
     </div>
     {% for task in tasks %}
         <div class="grid_4">
-          <div> <img src="/media/images/page4-img1.jpg" alt="" class="img-border">
+          <div><a href="/task/{{ task.id }}"><img width="285" src="/uploads/{{ task.task_photo }}" alt="" class="img-border"></a>
             <p class="top-4"><a href="/task/{{ task.id }}" class="link">{{ task.title }}</a><br>
               {{ task.description|slice:"100" }}</p>
             <a href="/task/{{ task.id }}" class="button top-4">Подробнее</a> </div>

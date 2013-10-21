@@ -1,8 +1,8 @@
 $(function() {
     $( "#create_task_dialog" ).dialog({
         autoOpen: false,
-        width: 600,
-        height:400,
+        width: 360,
+        height:470,
         show: {
             effect: "explode",
             duration: 1000
