@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
-{% block scripts %}<script src="/media/js/index.js"></script>{% endblock %}
+{% block scripts %}
+    <script src="/media/js/index.js"></script>
+    {% load loginza_widget %}
+{% endblock %}
 {% block content %}
 <div id="slide">
   <div class="slider">
@@ -36,11 +39,22 @@
     </div>
     <div class="grid_6 box-1"> <img src="/media/images/login.png" alt="">
       <div class="extra-wrap">
-        <h2>Вход</h2>
+{#        <h2>Вход</h2>#}
           <div class="login form">
-              <input type="text" value="Логин" onblur="if(this.value=='') this.value='Логин'" onfocus="if(this.value =='Логин' ) this.value=''">
-              <input type="text" value="Пароль" onblur="if(this.value=='') this.value='Пароль'" onfocus="if(this.value =='Пароль' ) this.value=''">
-              <a class="link" href="/register">Регистрация</a><a class="link" href="/remember">Забыли пароль?!</a>
+          {% if form %}
+              <form method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="Продолжить"/>
+              </form>
+          {% elif user.is_authenticated %}
+              {{ user }}
+          {% else %}
+            {% loginza_iframe providers_set="vkontakte,google,facebook,twitter,yandex,mailru" width="330px" height="200px" lang="ru" %}
+          {% endif %}
+{#              <input type="text" value="Логин" onblur="if(this.value=='') this.value='Логин'" onfocus="if(this.value =='Логин' ) this.value=''">#}
+{#              <input type="text" value="Пароль" onblur="if(this.value=='') this.value='Пароль'" onfocus="if(this.value =='Пароль' ) this.value=''">#}
+{#              <a class="link" href="/register">Регистрация</a><a class="link" href="/remember">Забыли пароль?!</a>#}
           </div>
       </div>
     </div>

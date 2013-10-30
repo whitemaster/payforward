@@ -6,19 +6,19 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
     url(r'^$', index),
     url(r'^task/([0-9]+)?/$', task),
     url(r'^tasks/$',tasks),
     url(r'^people/$', people),
     url(r'^create_task/$', create_task),
     url(r'^profile/([0-9]+)?/$', profile),
-    # url(r'^PayForward/', include('PayForward.foo.urls')),
 
-    # Uncomment the admin/doc line below to enable admin documentation:
+    #loginza
+    (r'^loginza/', include('loginza.urls')),
+    url(r'^users/', include('users.urls')),
+
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
-    # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     #develop
     url(r'^uploads/(?P<path>.*)$','django.views.static.serve',

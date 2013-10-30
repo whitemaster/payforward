@@ -1,7 +1,19 @@
 # Django settings for PayForward project.
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'loginza.authentication.LoginzaBackend',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS += (
+    'django.core.context_processors.request',
+)
+
+LOGINZA_AMNESIA_PATHS = ('/users/complete_registration/',)
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -119,5 +131,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'tasks',
-    'south'
+    'south',
+    'loginza',
+    'users'
 )
