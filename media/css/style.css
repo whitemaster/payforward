@@ -457,7 +457,7 @@ footer p {
 	font-style:italic;
 	padding:5px 9px 6px 18px;
 	outline: medium none;
-	width: 297px;
+	width: 293px;
 	height:17px;
 }
 .form textarea {
@@ -536,4 +536,21 @@ footer p {
 }
 .otkilik_data{
     color: #b6b6b6;
+}
+.bigButton{
+    color: #838383;
+    background-color: #f0f0f0;
+    background-image: url(../images/button_bg.gif);
+    background-repeat: repeat-x;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "Arial";
+    border: 1px solid #c4c4c4;
+    padding: 5px;
+}
+.bigButton:hover{
+    color: #2e9cd8;
+    background-color: #f4fafd;
+    background-image: url(../images/button_hover_bg.gif);
+    border: 1px solid #d3ecfd;
 }

@@ -9,7 +9,7 @@ from users.forms import CompleteReg
 
 from loginza import signals, models
 from loginza.templatetags.loginza_widget import _return_path
-
+from django.contrib.auth.views import logout as system_logout
 
 def loginza_error_handler(sender, error, **kwargs):
     messages.error(sender, error.message)
@@ -63,3 +63,7 @@ def complete_registration(request):
             })
 
     return form
+
+
+def logout(request):
+    return system_logout(request,'/')

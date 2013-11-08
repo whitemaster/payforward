@@ -1,3 +1,4 @@
+from mercurial.dispatch import request
 from django.shortcuts import render_to_response, redirect
 from tasks.models import *
 from forms import *
@@ -5,6 +6,10 @@ from django.template import RequestContext
 from django.http import HttpResponseBadRequest
 from users.views import complete_registration
 import random
+from loginza.models import UserMap
+from django.utils import simplejson as json
+from django.core.exceptions import ObjectDoesNotExist
+
 
 def index(request):
     tasks = Task.objects.all()
@@ -14,6 +19,17 @@ def index(request):
     if 'users_complete_reg_id' in request.session:
         form = complete_registration(request)
         response['form'] = form
+
+    if request.user.is_authenticated():
+        try:
+            user_map  = UserMap.objects.get(user=request.user)
+            data = json.loads(user_map.identity.data)
+            response['avatar'] = data.get('photo', None)
+        except ObjectDoesNotExist:
+            pass
+
+
+
     return render_to_response('index.html',response, context_instance=RequestContext(request))
 
 def create_task(request):

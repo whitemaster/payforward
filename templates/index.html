@@ -37,7 +37,13 @@
         <p>Вы можете попросить людей из нашего сообщества сделать что-то нужное для вас. После этого вам нужно будет выполнить любые три просьбы других людей на сайте.</p>
       </div>
     </div>
-    <div class="grid_6 box-1"> <img src="/media/images/login.png" alt="">
+    <div class="grid_6 box-1">
+          {% if avatar %}
+              <img class="img-border " src="{{ avatar }}" alt=""/>
+          {% elif user.is_authenticated %}
+          {% else %}
+              <img src="/media/images/login.png" alt="">
+          {% endif %}
       <div class="extra-wrap">
 {#        <h2>Вход</h2>#}
           <div class="login form">
@@ -45,10 +51,14 @@
               <form method="POST">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <input type="submit" value="Продолжить"/>
+                    <input class="bigButton" type="submit" value="Продолжить"/>
               </form>
           {% elif user.is_authenticated %}
-              {{ user }}
+              <h2>
+                Привет, <a href="/profile/{{ user.id }}">{{ user }}</a>
+              </h2>
+              <a class="bigButton" href="/profile/{{ user.id }}">Личный кабинет</a>
+              <a class="bigButton" href="/users/logout">Выход</a>
           {% else %}
             {% loginza_iframe providers_set="vkontakte,google,facebook,twitter,yandex,mailru" width="330px" height="200px" lang="ru" %}
           {% endif %}
