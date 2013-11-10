@@ -100,7 +100,7 @@
     <div id="create_task_dialog" title="Добавление просьбы">
         <form method="POST" class="form" action="/create_task/" enctype="multipart/form-data" id="create_task_form">
             {% csrf_token %}
-            {{ form.as_p }}
+            {{ task_form.as_p }}
             <input type="submit" class="button top-4" value="Добавить">
         </form>
     </div>

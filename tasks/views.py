@@ -15,7 +15,8 @@ def index(request):
     tasks = Task.objects.all()
     important_tasks = tasks.order_by('-rate')[0:4]
     fresh_tasks = tasks.order_by('-create_date')[0:4]
-    response = {'important_tasks':important_tasks,'fresh_tasks':fresh_tasks}
+    task_form = CreateTaskForm()
+    response = {'important_tasks':important_tasks,'fresh_tasks':fresh_tasks,'task_form':task_form}
     if 'users_complete_reg_id' in request.session:
         form = complete_registration(request)
         response['form'] = form
