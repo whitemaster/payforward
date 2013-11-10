@@ -562,3 +562,6 @@ footer p {
     vertical-align: inherit !important;
     margin-left: -30px !important;
 }
+#vk_comments{
+    height: auto !important;
+}
