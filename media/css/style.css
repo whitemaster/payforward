@@ -554,3 +554,11 @@ footer p {
     background-image: url(../images/button_hover_bg.gif);
     border: 1px solid #d3ecfd;
 }
+#likes>div{
+    float: left;
+    margin-right: 10px !important;
+}
+#___plusone_0{
+    vertical-align: inherit !important;
+    margin-left: -30px !important;
+}
